@@ -29,8 +29,12 @@ function getNextEpisodeInPlaylist(playlist){
 }
 
 function bingeWatch(playlist){
+  if (playlist.length > 0 && playlist.slice(playlist.length -1)[0].title !== 'The Winds of Winter'){
+    playlist.push(finaleEpisode)
+  }
   playlist = playlist.slice();
   while (playlist.length > 0){
+    console.log(`watching ${playlist[0].title}`)
     playlist.splice(0, 1)
     return bingeWatch(playlist)
   }
