@@ -30,11 +30,10 @@ function getNextEpisodeInPlaylist(playlist){
 
 function bingeWatch(playlist){
   if (playlist.length > 0 && playlist.slice(playlist.length -1)[0].title !== 'The Winds of Winter'){
-    playlist.push(finaleEpisode)
+    playlist.push(finaleEpisode) //this is necessary to watch the ENTIRE season, the tests still pass without it
   }
   playlist = playlist.slice();
   while (playlist.length > 0){
-    console.log(`watching ${playlist[0].title}`)
     playlist.splice(0, 1)
     return bingeWatch(playlist)
   }
